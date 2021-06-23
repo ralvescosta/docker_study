@@ -1,7 +1,6 @@
 # Docker and Docker Compose study
 
 
-
 ### Images
 
 - nginx
