@@ -1,0 +1,16 @@
+FROM node:14
+
+WORKDIR /front
+
+COPY package.json .
+
+RUN yarn install
+
+COPY . .
+
+RUN yarn build
+
+FROM nginx
+COPY --from=front app/build /user/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
